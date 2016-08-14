@@ -41,6 +41,9 @@ values."
                  js2-mode-show-strict-warnings nil
                  js2-indent-switch-body t)
      react
+
+     ;; private layers
+     airead
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -251,11 +254,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
       ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
       ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
-  ;; short cut key binding
-  (global-set-key (kbd "s-r") 'helm-semantic-or-imenu)
-  (global-set-key (kbd "s-p") 'helm-projectile-find-file)
-  (global-set-key (kbd "s-d") 'mc/mark-next-like-this-symbol)
-
   ;; smooth scroll
   ;; scroll one line at a time (less "jumpy" than defaults)
   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
@@ -263,15 +261,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
   (setq scroll-step 1) ;; keyboard scroll one line at a time
 
-  ;;; org
-  (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
-  (setq org-agenda-files (list "~/Dropbox/gtd/notes.org"
-                               "~/Dropbox/gtd/inbox.org"))
-  (setq org-default-notes-file "~/Dropbox/GTD/notes.org")
-  (setq org-todo-keyword-faces
-        '(("TODO" . "red")
-          ("WAIT" . "yellow")))
-  (setq org-clock-persist t)
   (setq flycheck-check-syntax-automatically '(mode-enabled save))
   )
 
@@ -282,30 +271,11 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq org-todo-keywords
-        '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)")))
-
+  
   ;;; auto normal state
   ;; Save buffers whenever they lose focus.
   ;; This obviates the need to hit the Save key thousands of times a day. Inspired by http://goo.gl/2z0g5O.
-  (add-hook 'focus-out-hook '(lambda () (evil-normal-state))) ; This hook is only available in Emacs 24.4+.
   (spacemacs/toggle-smooth-scrolling-off)
-
-  (defun my-setup-indent (n)
-    (interactive)
-    ;; java/c/c++
-    (setq-local c-basic-offset n)
-    ;; web development
-    (setq-local coffee-tab-width n) ; coffeescript
-    (setq-local javascript-indent-level n) ; javascript-mode
-    (setq-local js-indent-level n) ; js-mode
-    (setq-local js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
-    (setq-local web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-    (setq-local web-mode-css-indent-offset n) ; web-mode, css in html file
-    (setq-local web-mode-code-indent-offset n) ; web-mode, js code in html file
-    (setq-local css-indent-offset n) ; css-mode
-    )
-  (my-setup-indent 4)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
