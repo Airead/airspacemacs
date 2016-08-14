@@ -261,7 +261,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
   (setq scroll-step 1) ;; keyboard scroll one line at a time
 
+  ;; flycheck
   (setq flycheck-check-syntax-automatically '(mode-enabled save))
+
+  ;; helm-projectile
+  (setq projectile-globally-ignored-directories
+        '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr"
+          "_darcs" ".tox" ".svn" ".stack-work" "node_modules"))
   )
 
 (defun dotspacemacs/user-config ()
