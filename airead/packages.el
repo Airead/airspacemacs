@@ -18,6 +18,7 @@
     multiple-cursors
     helm
     org
+    flycheck
     )
   )
 
@@ -50,6 +51,10 @@
     )
   )
 
+(when (configuration-layer/layer-usedp 'syntax-checking)
+  (defun airead/post-init-flycheck ()
+    (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)))
+
 (defun my-setup-indent (n)
   (interactive)
   ;; java/c/c++
@@ -64,5 +69,16 @@
   (setq-local web-mode-code-indent-offset n) ; web-mode, js code in html file
   (setq-local css-indent-offset n) ; css-mode
   )
+
+(defun my/use-eslint-from-node-modules ()
+  (let* ((root (locate-dominating-file
+                (or (buffer-file-name) default-directory)
+                "node_modules"))
+         (eslint (and root
+                      (expand-file-name "node_modules/eslint/bin/eslint.js"
+                                        root))))
+    (when (and eslint (file-executable-p eslint))
+      (setq-local flycheck-javascript-eslint-executable eslint))))
+
 
 ;;; packages.el ends here
