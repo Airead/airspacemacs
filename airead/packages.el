@@ -45,7 +45,7 @@
             ("WAIT" . "yellow")))
     (setq org-clock-persist t))
 
-  (defun airad/post-init-org ()
+  (defun airead/post-init-org ()
     (setq org-todo-keywords
           '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)")))
     )
