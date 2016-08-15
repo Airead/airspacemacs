@@ -32,7 +32,9 @@
 (defun airead/post-init-helm ()
   "Config helm."
   (global-set-key (kbd "s-r") 'helm-semantic-or-imenu)
-  (global-set-key (kbd "s-p") 'helm-projectile-find-file))
+  (global-set-key (kbd "s-p") 'helm-projectile-find-file)
+  (global-set-key (kbd "C-`") 'set-mark-command)
+  )
 
 (when (configuration-layer/layer-usedp 'org)
   (defun airead/pre-init-org ()
