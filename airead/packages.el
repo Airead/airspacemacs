@@ -19,8 +19,16 @@
     helm
     org
     flycheck
+    chinese-fonts-setup
     )
   )
+
+(defun airead/helper-key-binding ()
+  (global-set-key (kbd "C-`") 'set-mark-command)
+  (global-set-key (kbd "s-1") 'delete-other-windows)
+  )
+
+(airead/helper-key-binding)
 
 (defun airead/init-multiple-cursors ()
   "Config multiple-cursors."
@@ -33,7 +41,6 @@
   "Config helm."
   (global-set-key (kbd "s-r") 'helm-semantic-or-imenu)
   (global-set-key (kbd "s-p") 'helm-projectile-find-file)
-  (global-set-key (kbd "C-`") 'set-mark-command)
   )
 
 (when (configuration-layer/layer-usedp 'org)
@@ -56,6 +63,10 @@
 (when (configuration-layer/layer-usedp 'syntax-checking)
   (defun airead/post-init-flycheck ()
     (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)))
+
+(defun airead/init-chinese-fonts-setup ()
+  (require 'chinese-fonts-setup)
+  )
 
 (defun my-setup-indent (n)
   (interactive)
