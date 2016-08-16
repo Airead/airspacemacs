@@ -116,7 +116,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 16
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -289,6 +289,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(cfs--current-profile "profile2" t)
+ '(cfs--profiles-steps (quote (("profile2" . 5))) t)
  '(column-number-mode t)
  '(paradox-github-token t)
  '(tool-bar-mode nil))
