@@ -45,7 +45,7 @@
 
 (when (configuration-layer/layer-usedp 'org)
   (defun airead/pre-init-org ()
-    (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
+    ;; (setq org-bullets-bullet-list '("■" "◆" "▲" "▶")) 
     (setq org-agenda-files (list "~/Dropbox/gtd/notes.org"
                                  "~/Dropbox/gtd/inbox.org"))
     (setq org-default-notes-file "~/Dropbox/GTD/notes.org")

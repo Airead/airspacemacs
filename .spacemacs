@@ -41,6 +41,7 @@ values."
                  js2-mode-show-strict-warnings nil
                  js2-indent-switch-body t)
      react
+     pandoc
 
      ;; private layers
      airead
