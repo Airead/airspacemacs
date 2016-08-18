@@ -290,7 +290,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(cfs--current-profile "profile2" t)
- '(cfs--profiles-steps (quote (("profile2" . 5))) t)
+ '(cfs--profiles-steps (quote (("profile2" . 4))) t)
  '(column-number-mode t)
  '(paradox-github-token t)
  '(tool-bar-mode nil))

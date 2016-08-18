@@ -20,6 +20,7 @@
     org
     flycheck
     chinese-fonts-setup
+    visual-regexp-steroids
     )
   )
 
@@ -58,6 +59,10 @@
     (setq org-todo-keywords
           '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)")))
     )
+  (defun make-orgcapture-frame ()
+    "Create a new frame and run org-capture."
+    (x-focus-frame nil)
+    (org-capture))
   )
 
 (when (configuration-layer/layer-usedp 'syntax-checking)
@@ -67,6 +72,10 @@
 (defun airead/init-chinese-fonts-setup ()
   (require 'chinese-fonts-setup)
   )
+
+(defun airead/init-visual-regexp-steroids ()
+  (use-package visual-regexp-steroids
+    :defer t))
 
 (defun my-setup-indent (n)
   (interactive)
