@@ -52,12 +52,13 @@
     (setq org-default-notes-file "~/Dropbox/GTD/notes.org")
     (setq org-todo-keyword-faces
           '(("TODO" . "red")
-            ("WAIT" . "yellow")))
+            ("WAIT" . "yellow")
+            ("CARE" . "pink")))
     (setq org-clock-persist t))
 
   (defun airead/post-init-org ()
     (setq org-todo-keywords
-          '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)")))
+          '((sequence "TODO(t)" "WAIT(w)" "CARE(c)" "|" "DONE(d)")))
     )
   (defun make-orgcapture-frame ()
     "Create a new frame and run org-capture."
