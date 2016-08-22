@@ -31,29 +31,32 @@
 
 (defconst blog-packages
   '(
-    ;; (org-webpage :location local)
     lentic
     org-webpage
     )
   )
 
 (defun blog/init-org-webpage ()
-  (require 'org-webpage)
-
-  (owp/add-project-config
-   '("test project"
-     :repository-directory "~/tmp/owp"
-     ;; :remote (git "https://github.com/airead/tumashu.github.com.git" "master")
-     ;; you can use `rclone` with `:remote (rclone "remote-name" "/remote/path/location")` instead.
-     :site-domain "http://tumashu.github.com/"
-     :site-main-title "Tumashu 的个人小站"
-     :site-sub-title "(九天十地，太上忘情！！！)"
-     :theme (worg)
-     :source-browse-url ("Github" "https://github.com/tumashu/tumashu.github.com")
-     :personal-avatar "/media/img/horse.jpg"
-     ;; :personal-duoshuo-shortname "tumashu-website"
-     :web-server-docroot "/tmp/owp/"
-     :web-server-port 7654))
+  (use-package org-webpage
+    :commands (owp/new-post owp/do-publication)
+    :defer t
+    :config
+    (owp/add-project-config
+     '("test project"
+       :repository-directory "~/tmp/owp"
+       ;; :remote (git "https://github.com/airead/tumashu.github.com.git" "master")
+       ;; you can use `rclone` with `:remote (rclone "remote-name" "/remote/path/location")` instead.
+       :site-domain "http://tumashu.github.com/"
+       :site-main-title "Tumashu 的个人小站"
+       :site-sub-title "(九天十地，太上忘情！！！)"
+       :theme (worg)
+       :source-browse-url ("Github" "https://github.com/tumashu/tumashu.github.com")
+       :personal-avatar "/media/img/horse.jpg"
+       ;; :personal-duoshuo-shortname "tumashu-website"
+       :web-server-docroot "/tmp/owp/"
+       :web-server-port 7654))
+    )
   )
+
 
 ;;; packages.el ends here
