@@ -54,7 +54,8 @@
           '(("TODO" . "red")
             ("WAIT" . "yellow")
             ("CARE" . "pink")))
-    (setq org-clock-persist t))
+    (setq org-clock-persist t)
+    (setq org-image-actual-width '(800)))
 
   (defun airead/post-init-org ()
     (setq org-todo-keywords
